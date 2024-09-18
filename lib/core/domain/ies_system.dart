@@ -1,5 +1,4 @@
 import "package:firebase_core/firebase_core.dart";
-import 'package:sistema_ies/admin_course/domain/admin_course.dart';
 import 'package:sistema_ies/admin_student_record/domain/admin_student_record.dart';
 import 'package:sistema_ies/studentRecord/domain/student_record.dart';
 import 'package:sistema_ies/core/data/studentregister_firestore_repository.dart';
@@ -20,7 +19,6 @@ import 'package:sistema_ies/home/domain/home.dart';
 import 'package:sistema_ies/login/domain/login.dart';
 import 'package:sistema_ies/register_as_incoming_student/domain/registering_as_incoming_user.dart';
 import 'package:sistema_ies/recoverypass/domain/recoverypass.dart';
-import 'package:sistema_ies/register_for_exam/domain/register_for_exam.dart';
 import 'package:sistema_ies/registering/domain/registering.dart';
 // import 'package:sistema_ies/registration_management/domain/registration_management.dart';
 
@@ -60,9 +58,7 @@ class IESSystem extends Operation {
   late StudentRecordUseCase studentRecordUseCase;
   late CRUDRoleUseCase crudTeachersAndStudentsUseCase;
   late CRUDRoleUseCase crudAllUseCase;
-  late RegisterForExamUseCase registerForExamUseCase;
   late AdminStudentRecordUseCase adminStudentRecordsUseCase;
-  late AdminCourseUseCase adminCourseUseCase;
   // late RegistrationManagementUseCase registrationManagementUseCase;
   // IESSystem as a Singleton
   factory IESSystem() {
@@ -211,25 +207,6 @@ class IESSystem extends Operation {
       //   changeState(const OperationState(
       //       stateName: IESSystemStateName.registerForExam));
       //   break;
-
-      case UserRoleOperationName.registerForExam:
-        registerForExamUseCase = RegisterForExamUseCase(
-            currentIESUser: homeUseCase.currentIESUser,
-            studentRole:
-                homeUseCase.currentIESUser.getCurrentRole() as Student);
-
-        changeState(const OperationState(
-            stateName: IESSystemStateName.registerForExam));
-        break;
-      case UserRoleOperationName.adminCourses:
-        registerForExamUseCase = RegisterForExamUseCase(
-            currentIESUser: homeUseCase.currentIESUser,
-            studentRole:
-                homeUseCase.currentIESUser.getCurrentRole() as Student);
-
-        changeState(
-            const OperationState(stateName: IESSystemStateName.adminCourse));
-        break;
 
       default:
     }

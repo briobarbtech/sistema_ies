@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:sistema_ies/admin_student_record/presentation/widgets/formTextField.dart';
-import 'package:sistema_ies/core/domain/entities/student.dart';
-import 'package:sistema_ies/core/domain/ies_system.dart';
+import 'package:sistema_ies/admin_student_record/presentation/widgets/form_text_field.dart';
 
-class CourseApprovedByAcredtation extends StatelessWidget {
-  const CourseApprovedByAcredtation({Key? key}) : super(key: key);
+class CourseApprovedByAcreditation extends StatelessWidget {
+  const CourseApprovedByAcreditation({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

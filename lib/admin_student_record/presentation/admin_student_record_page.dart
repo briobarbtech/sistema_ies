@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:sistema_ies/admin_student_record/presentation/widgets/forms/CourseApprovedByAcredtation.dart';
+import 'package:sistema_ies/admin_student_record/presentation/widgets/forms/course_approved_by_acreditation.dart';
 import 'package:sistema_ies/admin_student_record/presentation/widgets/movement_selector_wg.dart';
 import 'package:sistema_ies/core/domain/entities/student.dart';
 import 'package:sistema_ies/core/domain/ies_system.dart';
 
 class AdminStudentRecordPage extends ConsumerWidget {
   AdminStudentRecordPage({Key? key}) : super(key: key);
-  // TODO: I have to do every forms
+  // TODO: I have to do each forms
   final Map<Enum, Widget> widgetElements = {
     MovementStudentRecordName.courseApproved: const Text("courseApproved"),
     MovementStudentRecordName.courseApprovedWithAccreditation:
-        const CourseApprovedByAcredtation(),
+        const CourseApprovedByAcreditation(),
     MovementStudentRecordName.courseFailedFree: const Text("courseFailedFree"),
     MovementStudentRecordName.courseFailedNonFree:
         const Text("courseFailedNonFree"),
@@ -44,8 +44,8 @@ class AdminStudentRecordPage extends ConsumerWidget {
         child: Column(
           children: [
             const MovementSelectorWidget(),
-            Container(
-                width: MediaQuery.of(context).size.width / 2,
+            SizedBox(
+                width: (MediaQuery.of(context).size.width / 3) * 2,
                 child: widgetElements[currentBody])
           ],
         ),

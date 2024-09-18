@@ -77,6 +77,12 @@ class StudentRecordUseCase extends Operation<StudentRecordState> {
       StudentRecordSubject studentRecordSubject) async {
     changeState(currentState.copyChangingState(
         newState: StudentRecordStateName.loading));
+        print(IESSystem().homeUseCase.currentIESUser.id);
+        print((IESSystem().homeUseCase.currentIESUser.getCurrentRole()
+                    as Student)
+                .syllabus
+                .administrativeResolution);
+        print(studentRecordSubject.subjectId);
     await IESSystem()
         .getStudentRepository()
         .getStudentRecordMovements(

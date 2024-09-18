@@ -1,38 +1,40 @@
-import 'package:sistema_ies/core/domain/entities/student.dart';
 import 'package:sistema_ies/core/domain/utils/prints.dart';
+
+import '../../domain/entities/student.dart';
 
 List<MovementStudentRecord> sortMovements(studentRecordsDocs) {
   List<MovementStudentRecord> movements = [];
   for (var movement in studentRecordsDocs) {
-    switch (movement['movementName']) {
-      case MovementStudentRecordName.finalExamApprovedByCertification:
+    print(movement['name']);
+    switch (movement['name']) {
+      case "finalExamApprovedByCertification":
         movements.add(MSRFinalExamApprovedByCertification.fromMap(movement));
         break;
-      case MovementStudentRecordName.courseRegistering:
+      case "courseRegistering":
         // Course registering
         movements.add(MSRCourseRegistering.fromMap(movement));
         break;
-      case MovementStudentRecordName.courseFailedNonFree:
+      case "courseFailedNonFree":
         // courseFailedNonFree
         movements.add(MSRCourseFailedNonFree.fromMap(movement));
         break;
-      case MovementStudentRecordName.courseFailedFree:
+      case "courseFailedFree":
         // courseFailedFree
         movements.add(MSRCourseFailedFree.fromMap(movement));
         break;
-      case MovementStudentRecordName.courseApproved:
+      case "courseApproved":
         // courseApproved
         movements.add(MSRCourseApproved.fromMap(movement));
         break;
-      case MovementStudentRecordName.courseApprovedWithAccreditation:
+      case "courseApprovedWithAccreditation":
         // courseApprovedWithAccreditation
         movements.add(MSRCourseApprovedWithAccreditation.fromMap(movement));
         break;
-      case MovementStudentRecordName.finalExamApproved:
+      case "finalExamApproved":
         // finalExamApproved
         movements.add(MSRFinalExamApproved.fromMap(movement));
         break;
-      case MovementStudentRecordName.finalExamNonApproved:
+      case "finalExamNonApproved":
         // finalExamNonApproved
         movements.add(MSRFinalExamNonApproved.fromMap(movement));
         break;
@@ -41,5 +43,6 @@ List<MovementStudentRecord> sortMovements(studentRecordsDocs) {
         prints("unknow");
     }
   }
+  print(movements);
   return movements;
 }

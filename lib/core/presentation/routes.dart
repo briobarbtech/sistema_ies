@@ -1,5 +1,4 @@
 import 'package:go_router/go_router.dart';
-import 'package:sistema_ies/admin_course/presentation/admin_course_page.dart';
 import 'package:sistema_ies/admin_student_record/presentation/admin_student_record_page.dart';
 import 'package:sistema_ies/studentRecord/presentation/check_student_record_page.dart';
 import 'package:sistema_ies/crud_roles/presentation/crud_roles_page.dart';
@@ -7,7 +6,6 @@ import 'package:sistema_ies/home/presentation/home_page.dart';
 import 'package:sistema_ies/login/presentation/login_page_main.dart';
 import 'package:sistema_ies/recoverypass/presentation/recovery_pass_page.dart';
 import 'package:sistema_ies/register_as_incoming_student/presentation/register_as_incoming_student_page.dart';
-import 'package:sistema_ies/register_for_exam/presentation/register_for_exam_page.dart';
 import 'package:sistema_ies/registering/presentation/register_page_main.dart';
 
 final systemRouter = GoRouter(
@@ -34,11 +32,6 @@ final systemRouter = GoRouter(
             builder: (context, state) => AdminStudentRecordPage(),
           ),
           GoRoute(
-            name: 'registerForExam',
-            path: 'registerForExam',
-            builder: (context, state) => const RegisterForExamPage(),
-          ),
-          GoRoute(
             name: 'crudAllUsers',
             path: 'crudAllUsers',
             builder: (context, state) => const CRUDRolesPage(),
@@ -47,11 +40,6 @@ final systemRouter = GoRouter(
             name: 'crudTeacherAndStudents',
             path: 'crudTeacherAndStudents',
             builder: (context, state) => const CRUDRolesPage(),
-          ),
-          GoRoute(
-            name: 'adminCourse',
-            path: 'adminCourse',
-            builder: (context, state) => const AdminCoursePage(),
           ),
         ]),
     GoRoute(

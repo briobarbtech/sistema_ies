@@ -126,9 +126,8 @@ class StudentDatasource implements StudentRepositoryPort {
         .docs
         .map((e) => e.data())
         .toList());
-
+    //print(studentRecordsDocs);
     movements = sortMovements(studentRecordsDocs);
-
     return movements;
   }
 
