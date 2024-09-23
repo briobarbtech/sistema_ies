@@ -78,8 +78,8 @@ class LoginUseCase extends Operation<LoginState> {
       if ((signInUser!.getCurrentRole().userRoleTypeName() ==
           UserRoleTypeName.student)) {
         await IESSystem().getStudentRepository().getStudentRecord(
-            idUser: signInUser!.id,
-            syllabus: (signInUser!.getCurrentRole() as Student)
+            userID: signInUser!.id,
+            syllabusID: (signInUser!.getCurrentRole() as Student)
                 .syllabus
                 .administrativeResolution);
       }

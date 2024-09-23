@@ -26,7 +26,7 @@ class HomePage extends ConsumerWidget {
       TextButton(
           onPressed: () {
             IESSystem().getStudentRepository().getSubjects(
-                idUser: IESSystem().homeUseCase.currentIESUser.id,
+                userID: IESSystem().homeUseCase.currentIESUser.id,
                 syllabusId: (IESSystem()
                         .homeUseCase
                         .currentIESUser

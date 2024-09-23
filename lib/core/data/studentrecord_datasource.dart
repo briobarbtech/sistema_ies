@@ -15,15 +15,27 @@ class StudentDatasource implements StudentRepositoryPort {
     return Right(Success('ok'));
   }
 
-  // Function POST to add a new Student record movement in database
+  /// This function adds a movement to the movements  of any student user.
+  /// 
+  /// Parameters:
+  /// - [userID]: The student user ID to whom you want to add a movement..
+  /// - [syllabusId]: It is necessary to define which syllabus will be modified..
+  /// - [subjectId]: It is necessary to define which subject will be modified..
+  /// 
+  /// Returns:
+  /// - This function could return either success or failure, depending on the case.
+  /// 
+  /// Exceptions:
+  
   @override
   Future<Either<Failure, Success>> addStudentRecordMovement(
       {required MovementStudentRecord newMovement,
-      required String idUser,
+      required String userID,
       required String syllabusId,
       required int subjectId}) async {
-    // TODO: implement addStudentRecordMovement
     try {
+
+      // TODO: "It is necessary to replace the function arguments with the received parameters.
       DocumentReference<Map<String, dynamic>> newItem = await firestoreInstance
           .collection("iesUsers")
           .doc("n6bgFjS9ntfdelOauViR")
@@ -41,12 +53,21 @@ class StudentDatasource implements StudentRepositoryPort {
     }
   }
 
-  // This function gets an Id from a Syllabus [required String idUser | required String syllabus]
-  Future<String> getSyllabusId(
-      {required String idUser, required String syllabus}) async {
+  /// This function gets a student role ID using syllabus ID
+  /// 
+  /// Parameters:
+  /// - [userID]: The user ID to whom you want to get the role ID..
+  /// - [syllabusID]: It is necessary to get the correct student role..
+  /// 
+  /// Returns:
+  /// - This function could return either string or error in console, depending on the case.
+  /// 
+  /// Exceptions:
+  Future<String> getRoleBySyllabusId(
+      {required String userID, required String syllabus}) async {
     return firestoreInstance
         .collection("iesUsers")
-        .doc(idUser)
+        .doc(userID)
         .collection('roles')
         .where("syllabus", isEqualTo: syllabus)
         .get()
@@ -61,7 +82,19 @@ class StudentDatasource implements StudentRepositoryPort {
     );
   }
 
-// This function gets an Id from a Subject [required String idUser | required String syllabus]
+  /// This function gets a subject's ID from the database using a field ID..
+  /// 
+  /// Using an identifier provided by the subject's fields, we can get the ID used in the database for that subject.
+  /// 
+  /// Parameters:
+  /// - [userID]: The user ID to whom you want to get the subject ID..
+  /// - [syllabusID]: It is necessary to get the correct student role..
+  /// - [subjectID]: It is necessary to get the subject's ID from the DB..
+  /// 
+  /// Returns:
+  /// - This function could return either string or error in console, depending on the case.
+  /// 
+  /// Exceptions:
   Future<String> getSubjectId(
       {required String userID,
       required String syllabusID,
@@ -84,18 +117,30 @@ class StudentDatasource implements StudentRepositoryPort {
       onError: (e) => {prints("Error completing: $e")},
     );
   }
-
+  /// This function retrieves a list of student records from the database..
+  /// 
+  /// A student record is an entity designed to resemble a subject, containing a
+  /// information related to the student's progress in that subject.
+  /// 
+  /// Parameters:
+  /// - [userID]: The user ID to whom you want to get the subject..
+  /// - [syllabusID]: It is necessary to get the correct student role..
+  /// 
+  /// Returns:
+  /// - This function could return either Failure or List<StudentRecordSubject>, depending on the case.
+  /// 
+  /// Exceptions:
   @override
   Future<Either<Failure, List<StudentRecordSubject>>> getStudentRecord(
-      {required String idUser, required String syllabus}) async {
+      {required String userID, required String syllabusID}) async {
     List<StudentRecordSubject> srSubjects = [];
     // GET syllabus ID
     Future<String> syllabusId =
-        getSyllabusId(idUser: idUser, syllabus: syllabus);
+        getRoleBySyllabusId(userID: userID, syllabus: syllabusID);
     // GET student records
     List<Map<String, dynamic>> studentRecordsDocs = ((await firestoreInstance
             .collection("iesUsers")
-            .doc(idUser)
+            .doc(userID)
             .collection('roles')
             .doc(await syllabusId)
             .collection("subjects")
@@ -113,22 +158,22 @@ class StudentDatasource implements StudentRepositoryPort {
 
   @override
   Future<List<MovementStudentRecord>> getStudentRecordMovements(
-      {required String idUser,
+      {required String userID,
       required String syllabusId,
       required int subjectId}) async {
     List<MovementStudentRecord> movements = [];
     List<Map<String, dynamic>> studentRecordsDocs = [];
     studentRecordsDocs = ((await firestoreInstance
             .collection("iesUsers")
-            .doc(idUser)
+            .doc(userID)
             .collection('roles')
-            .doc(await getSyllabusId(idUser: idUser, syllabus: syllabusId))
+            .doc(await getRoleBySyllabusId(userID: userID, syllabus: syllabusId))
             .collection("subjects")
             .doc(await getSubjectId(
                 subjectID: subjectId,
                 syllabusID:
-                    await getSyllabusId(idUser: idUser, syllabus: syllabusId),
-                userID: idUser))
+                    await getRoleBySyllabusId(userID: userID, syllabus: syllabusId),
+                userID: userID))
             .collection('movements')
             .get())
         .docs
@@ -141,16 +186,16 @@ class StudentDatasource implements StudentRepositoryPort {
 
   @override
   Future<Either<Failure, List<StudentRecordSubject2>>> getSubjects(
-      {required String idUser, required String syllabusId}) async {
+      {required String userID, required String syllabusId}) async {
     List<StudentRecordSubject2> subjects = [];
     List<Map> subjectsDocs = [];
     prints("Started!");
     try {
       subjectsDocs = (await firestoreInstance
               .collection("iesUsers")
-              .doc(idUser)
+              .doc(userID)
               .collection('roles')
-              .doc(await getSyllabusId(idUser: idUser, syllabus: syllabusId))
+              .doc(await getRoleBySyllabusId(userID: userID, syllabus: syllabusId))
               .collection("subjects")
               .get())
           .docs

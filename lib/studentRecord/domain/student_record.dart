@@ -57,8 +57,8 @@ class StudentRecordUseCase extends Operation<StudentRecordState> {
     await IESSystem()
         .getStudentRepository()
         .getStudentRecord(
-            idUser: IESSystem().homeUseCase.currentIESUser.id,
-            syllabus: (IESSystem().homeUseCase.currentIESUser.getCurrentRole()
+            userID: IESSystem().homeUseCase.currentIESUser.id,
+            syllabusID: (IESSystem().homeUseCase.currentIESUser.getCurrentRole()
                     as Student)
                 .syllabus
                 .administrativeResolution)
@@ -86,7 +86,7 @@ class StudentRecordUseCase extends Operation<StudentRecordState> {
     await IESSystem()
         .getStudentRepository()
         .getStudentRecordMovements(
-            idUser: IESSystem().homeUseCase.currentIESUser.id,
+            userID: IESSystem().homeUseCase.currentIESUser.id,
             syllabusId: (IESSystem().homeUseCase.currentIESUser.getCurrentRole()
                     as Student)
                 .syllabus
@@ -104,7 +104,7 @@ class StudentRecordUseCase extends Operation<StudentRecordState> {
         newState: StudentRecordStateName.loading));
     // throught IESSystem we'll to try get the subjects
     await IESSystem().getStudentRepository().getSubjects(
-        idUser: IESSystem().homeUseCase.currentIESUser.id,
+        userID: IESSystem().homeUseCase.currentIESUser.id,
         syllabusId:
             (IESSystem().homeUseCase.currentIESUser.getCurrentRole() as Student)
                 .syllabus

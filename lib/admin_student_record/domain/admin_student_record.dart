@@ -42,7 +42,7 @@ class AdminStudentRecordUseCase extends Operation<AdminStudentRecordState> {
             stateName: AdminStudentRecordStateName.init,
             currentRole: administrative));
   Future<Either<Failure, Success>> submitNewStudentMovement (MovementStudentRecord movementStudentRecord) async {
-    return await IESSystem().getStudentRepository().addStudentRecordMovement(newMovement: movementStudentRecord, idUser: IESSystem().homeUseCase.currentIESUser.id, syllabusId: "501-DGE-19", subjectId: 20).fold((left) {
+    return await IESSystem().getStudentRepository().addStudentRecordMovement(newMovement: movementStudentRecord, userID: IESSystem().homeUseCase.currentIESUser.id, syllabusId: "501-DGE-19", subjectId: 20).fold((left) {
       print(left);
       return Left(left);}, (right) {
         print(right.message);
