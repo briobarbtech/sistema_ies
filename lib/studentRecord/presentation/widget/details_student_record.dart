@@ -25,7 +25,7 @@ class DetailsStudentRecordCard extends StatelessWidget {
       child: ExpansionTile(
           collapsedBackgroundColor: const Color.fromARGB(255, 255, 255, 255),
           backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-          title: Text(movementStudentRecord.movementName.name.toString()),
+          title: Text(movementStudentRecord.movementName),
           children: [
             Container(
                 width: MediaQuery.of(context).size.width,

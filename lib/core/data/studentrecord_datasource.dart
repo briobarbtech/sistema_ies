@@ -1,10 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:either_dart/either.dart';
 import 'package:sistema_ies/core/data/init_repository_adapters.dart';
 import 'package:sistema_ies/core/data/utils/sort_movements.dart';
 import 'package:sistema_ies/core/domain/entities/student.dart';
+import 'package:sistema_ies/core/domain/repositories/courses_repository_port.dart';
 import 'package:sistema_ies/core/domain/repositories/student_repository.dart';
 import 'package:sistema_ies/core/domain/utils/responses.dart';
 import 'package:sistema_ies/core/domain/utils/prints.dart';
+
 
 class StudentDatasource implements StudentRepositoryPort {
   @override
@@ -14,22 +17,27 @@ class StudentDatasource implements StudentRepositoryPort {
 
   // Function POST to add a new Student record movement in database
   @override
-  void addStudentRecordMovement(
+  Future<Either<Failure, Success>> addStudentRecordMovement(
       {required MovementStudentRecord newMovement,
       required String idUser,
       required String syllabusId,
-      required int subjectId}) {
+      required int subjectId}) async {
     // TODO: implement addStudentRecordMovement
     try {
-      firestoreInstance
+      DocumentReference<Map<String, dynamic>> newItem = await firestoreInstance
           .collection("iesUsers")
-          .doc(idUser)
+          .doc("n6bgFjS9ntfdelOauViR")
           .collection('roles')
-          .doc("syllabus")
-          .collection("subject")
-          .add(newMovement.toMap(newMovement));
+          .doc("FGqnYpXcgLqcUroYqMxD")
+          .collection("subjects")
+          .doc("0NTl6E4AJOeLVpLmv5IJ")
+          .collection("movements")
+          .add({"hola":"adios"});
+          //.add(newMovement.toMap(newMovement));
+          return Right(Success(newItem.id));
     } catch (e) {
       prints(e);
+      return Left(Failure(failureName: FailureName.unknown));
     }
   }
 

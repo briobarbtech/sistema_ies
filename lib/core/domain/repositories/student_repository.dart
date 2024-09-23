@@ -17,7 +17,7 @@ abstract class StudentRepositoryPort extends RepositoryPort {
       required int subjectId});
 
   // This is a function POST to create a new register of Student record in database
-  void addStudentRecordMovement(
+  Future<Either<Failure, Success>> addStudentRecordMovement(
       {required MovementStudentRecord newMovement,
       required String idUser,
       required String syllabusId,
