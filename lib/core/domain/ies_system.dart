@@ -1,5 +1,6 @@
 import "package:firebase_core/firebase_core.dart";
 import 'package:sistema_ies/admin_student_record/domain/admin_student_record.dart';
+import 'package:sistema_ies/enroll_in_courses/domain/enroll_in_courses.dart';
 import 'package:sistema_ies/studentRecord/domain/student_record.dart';
 import 'package:sistema_ies/core/data/studentregister_firestore_repository.dart';
 import 'package:sistema_ies/core/domain/entities/student.dart';
@@ -34,7 +35,8 @@ enum IESSystemStateName {
   crudAllUsers,
   registerForExam,
   adminStudentRecords,
-  adminCourse
+  adminCourse,
+  enrollInCourses
 }
 
 class IESSystem extends Operation {
@@ -59,6 +61,7 @@ class IESSystem extends Operation {
   late CRUDRoleUseCase crudTeachersAndStudentsUseCase;
   late CRUDRoleUseCase crudAllUseCase;
   late AdminStudentRecordUseCase adminStudentRecordsUseCase;
+  late EnrollInCoursesUseCase enrollInCoursesUseCase;
   // late RegistrationManagementUseCase registrationManagementUseCase;
   // IESSystem as a Singleton
   factory IESSystem() {
@@ -159,6 +162,15 @@ class IESSystem extends Operation {
         studentRecordUseCase.getStudentRecords();
         changeState(const OperationState(
             stateName: IESSystemStateName.checkStudentRecord));
+        break;
+      /* ---------- */
+      case UserRoleOperationName.enrollInCourses:
+        enrollInCoursesUseCase = EnrollInCoursesUseCase(
+            const EnrollInCoursesState(
+                stateName: EnrollInCoursesStateName.init));
+        studentRecordUseCase.getStudentRecords();
+        changeState(const OperationState(
+            stateName: IESSystemStateName.enrollInCourses));
         break;
       /* ---------- */
       case UserRoleOperationName.adminStudentRecords:
