@@ -50,11 +50,8 @@ class StudentRecordExpandedList extends StatelessWidget {
       Expanded(
         child: ListView.builder(
             shrinkWrap: true,
-            itemCount: IESSystem()
-                .studentRecordUseCase
-                .studentRole
-                .srSubjects
-                .length,
+            itemCount:
+                IESSystem().studentRecordUseCase.studentRole.srSubjects.length,
             itemBuilder: (context, index) {
               return StudentRecordCard(IESSystem()
                   .studentRecordUseCase

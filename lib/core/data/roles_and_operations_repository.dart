@@ -25,7 +25,7 @@ class RolesAndOperationsRepositoryMemoryAdapter
       <UserRoleOperationName, String>{
         UserRoleOperationName.registerAsIncomingStudent:
             'Inscripción a carrera',
-        UserRoleOperationName.registerForCourse: 'Inscripción a cursar',
+        UserRoleOperationName.enrollInCourses: 'Inscripción a cursar',
         UserRoleOperationName.registerForExam: 'Inscripción a mesa',
         UserRoleOperationName.checkStudentRecord:
             'Consultar trayecto estudiantil',
@@ -63,14 +63,14 @@ class RolesAndOperationsRepositoryMemoryAdapter
           title: 'Ingresante',
           operationNames: [
             UserRoleOperationName.registerAsIncomingStudent,
-            UserRoleOperationName.registerForCourse,
+            UserRoleOperationName.enrollInCourses,
           ]);
       addCachedUserRoleType(
           roleTypeName: UserRoleTypeName.student,
           title: 'Estudiante',
           operationNames: [
             UserRoleOperationName.registerAsIncomingStudent,
-            UserRoleOperationName.registerForCourse,
+            UserRoleOperationName.enrollInCourses,
             UserRoleOperationName.registerForExam,
             UserRoleOperationName.checkFinalExamsDates,
             UserRoleOperationName.checkStudentRecord,

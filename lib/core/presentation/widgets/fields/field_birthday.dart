@@ -45,8 +45,13 @@ Widget fieldBirthday(controller, text, context) {
         return 'La fecha de nacimiento no puede estar vacía';
       }
     },
-    onDateSelected: (DateTime value) {
-      controller.text = dateToString(value);
+    //TODO "Brian: Cambien onDateSelected: por onChanged, porque me lo pedia la actualizacion de la biblioteca "
+    //    // onDateSelected: (DateTime value) {
+    //   controller.text = dateToString(value);
+    // },
+
+    onChanged: (DateTime? value) {
+      controller.text = value != null ? dateToString(value) : '';
     },
   );
 }

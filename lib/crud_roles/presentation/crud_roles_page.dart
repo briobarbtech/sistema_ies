@@ -106,9 +106,8 @@ class CRUDRolesPage extends ConsumerWidget {
                                   SearchController controller) {
                             return SearchBar(
                               controller: controller,
-                              padding:
-                                  const MaterialStatePropertyAll<EdgeInsets>(
-                                      EdgeInsets.symmetric(horizontal: 16.0)),
+                              padding: const WidgetStatePropertyAll<EdgeInsets>(
+                                  EdgeInsets.symmetric(horizontal: 16.0)),
                               // onTap: () {
                               //   controller.openView();
                               // },

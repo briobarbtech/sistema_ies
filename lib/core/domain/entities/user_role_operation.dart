@@ -1,6 +1,6 @@
 enum UserRoleOperationName {
   registerAsIncomingStudent,
-  registerForCourse,
+  enrollInCourses,
   registerForExam,
   checkStudentRecord,
   uploadFinalCourseGrades,
@@ -15,7 +15,6 @@ enum UserRoleOperationName {
   adminStudentRecords,
   writeExamGrades,
   adminSyllabuses,
-  enrollInCourses
 }
 
 class UserRoleOperation {
