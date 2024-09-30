@@ -9,8 +9,7 @@ import 'details_student_record.dart';
 
 class StudentRecordCardExpanded extends ConsumerWidget {
   final StudentRecordSubject studentRecordSubject;
-  const StudentRecordCardExpanded(this.studentRecordSubject, {Key? key})
-      : super(key: key);
+  const StudentRecordCardExpanded(this.studentRecordSubject, {super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     Map<Enum, Widget> widgetElements = {

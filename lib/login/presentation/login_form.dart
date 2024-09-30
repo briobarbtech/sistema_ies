@@ -6,7 +6,7 @@ import '../../core/presentation/widgets/fields/field_email_dni.dart';
 import '../../core/presentation/widgets/fields/field_names.dart';
 
 class LoginForm extends ConsumerWidget {
-  LoginForm({Key? key}) : super(key: key);
+  LoginForm({super.key});
 
   final _formKey = GlobalKey<FormState>();
 

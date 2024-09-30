@@ -3,8 +3,7 @@ import 'package:sistema_ies/core/domain/entities/user_roles.dart';
 
 class AddingManagerDialog extends StatefulWidget {
   final UserRole? newuserRoleIfAny;
-  const AddingManagerDialog({Key? key, this.newuserRoleIfAny})
-      : super(key: key);
+  const AddingManagerDialog({super.key, this.newuserRoleIfAny});
 
   @override
   State<AddingManagerDialog> createState() => _AddingManagerDialogState();

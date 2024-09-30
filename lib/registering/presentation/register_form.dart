@@ -9,7 +9,7 @@ import '../../core/presentation/widgets/fields/field_names.dart';
 import '../../core/presentation/widgets/fields/field_password.dart';
 
 class RegisterBody extends ConsumerWidget {
-  RegisterBody({Key? key}) : super(key: key);
+  RegisterBody({super.key});
   final _registerFormKey = GlobalKey<FormState>();
 
   final _firstnameTextController = TextEditingController();

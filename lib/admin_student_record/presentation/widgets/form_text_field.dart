@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
-
 class FormTextField extends StatelessWidget {
   const FormTextField(
-      {Key? key, required this.controller, required this.name}) : super(key: key);
+      {super.key, required this.controller, required this.name});
 
   final TextEditingController controller;
   final String name;
   @override
   Widget build(BuildContext context) {
-    return Container(padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width / 5, vertical: 16),
+    return Container(
+      padding: EdgeInsets.symmetric(
+          horizontal: MediaQuery.of(context).size.width / 5, vertical: 16),
       child: TextFormField(
         decoration: InputDecoration(
           //contentPadding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),

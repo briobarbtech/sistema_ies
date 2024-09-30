@@ -7,7 +7,7 @@ import 'package:sistema_ies/login/presentation/widgets/failure.dart';
 import 'package:sistema_ies/login/presentation/login_form.dart';
 
 class LoginPageMain extends ConsumerWidget {
-  const LoginPageMain({Key? key}) : super(key: key);
+  const LoginPageMain({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final Map<Enum, Widget> widgetElements = {

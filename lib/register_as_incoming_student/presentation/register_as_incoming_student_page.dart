@@ -4,7 +4,7 @@ import 'package:sistema_ies/core/domain/entities/syllabus.dart';
 import 'package:sistema_ies/core/domain/ies_system.dart';
 
 class RegisterAsIncomingStudentPage extends ConsumerWidget {
-  RegisterAsIncomingStudentPage({Key? key}) : super(key: key);
+  RegisterAsIncomingStudentPage({super.key});
 
   final _formKey = GlobalKey<FormState>();
 

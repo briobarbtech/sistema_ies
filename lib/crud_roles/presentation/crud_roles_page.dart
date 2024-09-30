@@ -9,7 +9,7 @@ import 'package:sistema_ies/core/domain/utils/prints.dart';
 // import 'package:sistema_ies/crud_roles/presentation/adding_role_dialog.dart';
 
 class CRUDRolesPage extends ConsumerWidget {
-  const CRUDRolesPage({Key? key}) : super(key: key);
+  const CRUDRolesPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

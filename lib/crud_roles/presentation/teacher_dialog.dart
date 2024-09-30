@@ -5,8 +5,7 @@ import 'package:sistema_ies/core/domain/ies_system.dart';
 
 class AddingTeacherDialog extends StatefulWidget {
   final UserRole? newuserRoleIfAny;
-  const AddingTeacherDialog({Key? key, this.newuserRoleIfAny})
-      : super(key: key);
+  const AddingTeacherDialog({super.key, this.newuserRoleIfAny});
 
   @override
   State<AddingTeacherDialog> createState() => _AddingTeacherDialogState();

@@ -10,7 +10,7 @@ import 'package:sistema_ies/core/domain/ies_system.dart';
 // import 'package:sistema_ies/infrastructure/flutter/screens/users/auth/auth_views.dart';
 
 class HomePage extends ConsumerWidget {
-  HomePage({Key? key}) : super(key: key);
+  HomePage({super.key});
   // final List operations =
   //     IESSystem().getCurrentUserRoleParameterizedOperations();
   final _currentIndex = StateProvider((ref) => 0);

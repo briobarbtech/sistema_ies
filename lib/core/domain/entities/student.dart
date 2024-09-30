@@ -247,16 +247,15 @@ class MSRFinalExamApprovedByCertification extends MovementStudentRecord {
   // 0-9 grade
   final int numericalGrade;
   MSRFinalExamApprovedByCertification({
-    required DateTime date,
+    required super.date,
     required this.numericalGrade,
     this.certificationInstitute,
     this.bookNumber,
     this.pageNumber,
     this.certificationResolution,
   }) : super(
-            movementName:
-                MovementStudentRecordName.finalExamApprovedByCertification.name,
-            date: date);
+            movementName: MovementStudentRecordName
+                .finalExamApprovedByCertification.name);
 
   factory MSRFinalExamApprovedByCertification.fromMap(
       Map<String, dynamic> movement) {
@@ -284,10 +283,8 @@ class MSRFinalExamApprovedByCertification extends MovementStudentRecord {
 }
 
 class MSRCourseRegistering extends MovementStudentRecord {
-  MSRCourseRegistering({required DateTime date})
-      : super(
-            movementName: MovementStudentRecordName.courseRegistering.name,
-            date: date);
+  MSRCourseRegistering({required super.date})
+      : super(movementName: MovementStudentRecordName.courseRegistering.name);
 
   @override
   String toString() {
@@ -307,10 +304,8 @@ class MSRCourseRegistering extends MovementStudentRecord {
 }
 
 class MSRCourseFailedNonFree extends MovementStudentRecord {
-  MSRCourseFailedNonFree({required DateTime date})
-      : super(
-            movementName: MovementStudentRecordName.courseFailedNonFree.name,
-            date: date);
+  MSRCourseFailedNonFree({required super.date})
+      : super(movementName: MovementStudentRecordName.courseFailedNonFree.name);
 
   @override
   String toString() {
@@ -328,10 +323,8 @@ class MSRCourseFailedNonFree extends MovementStudentRecord {
 }
 
 class MSRCourseFailedFree extends MovementStudentRecord {
-  MSRCourseFailedFree({required DateTime date})
-      : super(
-            movementName: MovementStudentRecordName.courseFailedFree.name,
-            date: date);
+  MSRCourseFailedFree({required super.date})
+      : super(movementName: MovementStudentRecordName.courseFailedFree.name);
   @override
   String toString() {
     return "Cursado libre(${date.day}-${date.month}-${date.year})  ";
@@ -348,10 +341,8 @@ class MSRCourseFailedFree extends MovementStudentRecord {
 }
 
 class MSRCourseApproved extends MovementStudentRecord {
-  MSRCourseApproved({required DateTime date})
-      : super(
-            movementName: MovementStudentRecordName.courseApproved.name,
-            date: date);
+  MSRCourseApproved({required super.date})
+      : super(movementName: MovementStudentRecordName.courseApproved.name);
   // This should reset the final exam counter.
   @override
   String numericalGradeString() {
@@ -378,10 +369,10 @@ class MSRCourseApprovedWithAccreditation extends MovementStudentRecord {
   final int numericalGrade;
 
   MSRCourseApprovedWithAccreditation(
-      {required DateTime date, required this.numericalGrade})
+      {required super.date, required this.numericalGrade})
       : super(
-            movementName: MovementStudentRecordName.courseApprovedWithAccreditation.name,
-            date: date);
+            movementName:
+                MovementStudentRecordName.courseApprovedWithAccreditation.name);
   @override
   String numericalGradeString() {
     return numericalGrade.toString();
@@ -413,13 +404,11 @@ class MSRFinalExamApproved extends MovementStudentRecord {
   MSRFinalExamApproved(
       {
       // required Subject subject,
-      required DateTime date,
+      required super.date,
       required this.numericalGrade,
       required this.bookNumber,
       required this.pageNumber})
-      : super(
-            movementName: MovementStudentRecordName.finalExamApproved.name,
-            date: date);
+      : super(movementName: MovementStudentRecordName.finalExamApproved.name);
   @override
   String numericalGradeString() {
     return numericalGrade.toString();
@@ -452,11 +441,9 @@ class MSRFinalExamApproved extends MovementStudentRecord {
 class MSRFinalExamNonApproved extends MovementStudentRecord {
   final int numericalGrade;
 
-  MSRFinalExamNonApproved(
-      {required DateTime date, required this.numericalGrade})
+  MSRFinalExamNonApproved({required super.date, required this.numericalGrade})
       : super(
-            movementName: MovementStudentRecordName.finalExamNonApproved.name,
-            date: date);
+            movementName: MovementStudentRecordName.finalExamNonApproved.name);
   @override
   String numericalGradeString() {
     return numericalGrade.toString();

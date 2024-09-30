@@ -13,8 +13,7 @@ enum HomeStateName { init, calendar, selectingRole, selectingRoleOperation }
 class HomeState extends OperationState {
   // final IESUser currentUser;
   final UserRole currentRole;
-  const HomeState({required Enum stateName, required this.currentRole})
-      : super(stateName: stateName);
+  const HomeState({required super.stateName, required this.currentRole});
 
   @override
   List<Object?> get props => [stateName, currentRole];

@@ -6,7 +6,7 @@ import 'package:sistema_ies/recoverypass/presentation/recovery_pass_form.dart';
 import '../domain/recoverypass.dart';
 
 class RecoveryPassPage extends ConsumerWidget {
-  RecoveryPassPage({Key? key}) : super(key: key);
+  RecoveryPassPage({super.key});
   static String nameRoute = 'recoverypass';
   static String pathRoute = 'recoverypass';
   final Map<Enum, Widget> _widgetElements = {

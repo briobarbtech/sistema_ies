@@ -10,7 +10,7 @@ main() async {
 }
 
 class AdminIESApp extends ConsumerWidget {
-  const AdminIESApp({Key? key}) : super(key: key);
+  const AdminIESApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

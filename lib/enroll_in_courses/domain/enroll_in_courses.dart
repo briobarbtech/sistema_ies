@@ -8,8 +8,7 @@ enum EnrollInCoursesStateName {
 }
 
 class EnrollInCoursesState extends OperationState {
-  const EnrollInCoursesState({required Enum stateName})
-      : super(stateName: stateName);
+  const EnrollInCoursesState({required super.stateName});
 }
 
 class EnrollInCoursesUseCase extends Operation<EnrollInCoursesState> {

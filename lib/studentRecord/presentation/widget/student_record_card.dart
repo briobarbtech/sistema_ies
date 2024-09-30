@@ -6,8 +6,7 @@ import 'package:sistema_ies/core/domain/ies_system.dart';
 class StudentRecordCard extends StatelessWidget {
   final StudentRecordSubject studentRecordSubject;
 
-  const StudentRecordCard(this.studentRecordSubject, {Key? key})
-      : super(key: key);
+  const StudentRecordCard(this.studentRecordSubject, {super.key});
 
   @override
   Widget build(BuildContext context) {

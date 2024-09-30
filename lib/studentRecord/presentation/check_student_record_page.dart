@@ -8,7 +8,7 @@ import 'package:sistema_ies/studentRecord/presentation/widget/student_record_car
 import 'widget/center_circle_progress_bar.dart';
 
 class CheckStudentRecordPage extends ConsumerWidget {
-  const CheckStudentRecordPage({Key? key}) : super(key: key);
+  const CheckStudentRecordPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -39,8 +39,8 @@ class CheckStudentRecordPage extends ConsumerWidget {
 
 class StudentRecordExpandedList extends StatelessWidget {
   const StudentRecordExpandedList({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

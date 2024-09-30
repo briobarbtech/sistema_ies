@@ -5,7 +5,7 @@ import 'package:sistema_ies/core/domain/entities/student.dart';
 import 'package:sistema_ies/core/domain/ies_system.dart';
 
 class CourseApprovedByAcreditation extends StatelessWidget {
-  const CourseApprovedByAcreditation({Key? key}) : super(key: key);
+  const CourseApprovedByAcreditation({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -54,10 +54,14 @@ class CourseApprovedByAcreditation extends StatelessWidget {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text('Processing Data')),
                   );
-                  final newMovement = MSRCourseApprovedWithAccreditation(date: DateTime.now(),numericalGrade: int.parse(numericalGrade.text));
+                  final newMovement = MSRCourseApprovedWithAccreditation(
+                      date: DateTime.now(),
+                      numericalGrade: int.parse(numericalGrade.text));
                   // and send the form
-                  // TODO: 
-                  print(IESSystem().adminStudentRecordsUseCase.submitNewStudentMovement(newMovement));
+                  // TODO:
+                  print(IESSystem()
+                      .adminStudentRecordsUseCase
+                      .submitNewStudentMovement(newMovement));
                 }
               },
               child: const Text("Load"))
@@ -67,4 +71,3 @@ class CourseApprovedByAcreditation extends StatelessWidget {
     );
   }
 }
-

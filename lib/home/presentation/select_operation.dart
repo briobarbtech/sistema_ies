@@ -3,7 +3,7 @@ import 'package:sistema_ies/core/domain/ies_system.dart';
 // import 'package:sistema_ies/application/ies_system.dart';
 
 class SelectUserRoleOperationPage extends StatelessWidget {
-  const SelectUserRoleOperationPage({Key? key}) : super(key: key);
+  const SelectUserRoleOperationPage({super.key});
 
   @override
   Widget build(BuildContext context) {

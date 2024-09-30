@@ -7,7 +7,7 @@ import '../../core/domain/utils/operation_utils.dart';
 import '../domain/registering.dart';
 
 class RegisterPage extends ConsumerWidget {
-  RegisterPage({Key? key}) : super(key: key);
+  RegisterPage({super.key});
   final Map<Enum, Widget> _widgetElements = {
     RegisteringStateName.init: RegisterBody(),
     RegisteringStateName.loading: const Center(

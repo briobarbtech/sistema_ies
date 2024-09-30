@@ -6,7 +6,7 @@ import 'package:sistema_ies/core/domain/entities/student.dart';
 import 'package:sistema_ies/core/domain/ies_system.dart';
 
 class AdminStudentRecordPage extends ConsumerWidget {
-  AdminStudentRecordPage({Key? key}) : super(key: key);
+  AdminStudentRecordPage({super.key});
   // TODO: I have to do each forms
   final Map<Enum, Widget> widgetElements = {
     MovementStudentRecordName.courseApproved: const Text("courseApproved"),

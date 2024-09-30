@@ -3,7 +3,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:sistema_ies/core/domain/entities/student.dart';
 
 class MovementSelectorWidget extends ConsumerWidget {
-  const MovementSelectorWidget({Key? key}) : super(key: key);
+  const MovementSelectorWidget({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -25,7 +25,6 @@ class MovementSelectorWidget extends ConsumerWidget {
             },
           ),
         ],
-        
       ),
     );
   }

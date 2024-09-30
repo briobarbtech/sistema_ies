@@ -17,8 +17,7 @@ enum AdminStudentRecordStateName {
 class AdminStudentRecordState extends OperationState {
   final Administrative currentRole;
   const AdminStudentRecordState(
-      {required Enum stateName, required this.currentRole})
-      : super(stateName: stateName);
+      {required super.stateName, required this.currentRole});
   AdminStudentRecordState copyChangingRole(
       {required Administrative newUserRole}) {
     return AdminStudentRecordState(
@@ -41,12 +40,21 @@ class AdminStudentRecordUseCase extends Operation<AdminStudentRecordState> {
       : super(AdminStudentRecordState(
             stateName: AdminStudentRecordStateName.init,
             currentRole: administrative));
-  Future<Either<Failure, Success>> submitNewStudentMovement (MovementStudentRecord movementStudentRecord) async {
-    return await IESSystem().getStudentRepository().addStudentRecordMovement(newMovement: movementStudentRecord, userID: IESSystem().homeUseCase.currentIESUser.id, syllabusId: "501-DGE-19", subjectId: 20).fold((left) {
+  Future<Either<Failure, Success>> submitNewStudentMovement(
+      MovementStudentRecord movementStudentRecord) async {
+    return await IESSystem()
+        .getStudentRepository()
+        .addStudentRecordMovement(
+            newMovement: movementStudentRecord,
+            userID: IESSystem().homeUseCase.currentIESUser.id,
+            syllabusId: "501-DGE-19",
+            subjectId: 20)
+        .fold((left) {
       print(left);
-      return Left(left);}, (right) {
-        print(right.message);
-        return Right(right);});
-            }
-            
+      return Left(left);
+    }, (right) {
+      print(right.message);
+      return Right(right);
+    });
+  }
 }

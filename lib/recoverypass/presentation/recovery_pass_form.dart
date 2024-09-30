@@ -4,8 +4,8 @@ import '../../core/presentation/widgets/fields/field_email_dni.dart';
 
 class RecoveryPassForm extends StatelessWidget {
   RecoveryPassForm({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
   final _formRecoveryPassKey = GlobalKey<FormState>();
   final _emailTextController = TextEditingController();
 

@@ -5,8 +5,7 @@ import '../../../core/domain/utils/datetime.dart';
 
 class DetailsStudentRecordCard extends StatelessWidget {
   final MovementStudentRecord movementStudentRecord;
-  const DetailsStudentRecordCard(this.movementStudentRecord, {Key? key})
-      : super(key: key);
+  const DetailsStudentRecordCard(this.movementStudentRecord, {super.key});
 
   @override
   Widget build(BuildContext context) {

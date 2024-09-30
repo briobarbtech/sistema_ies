@@ -16,7 +16,7 @@ enum CRUDRoleStateName {
 }
 
 class CRUDRoleState extends OperationState {
-  const CRUDRoleState({required Enum stateName}) : super(stateName: stateName);
+  const CRUDRoleState({required super.stateName});
 
   @override
   List<Object?> get props => [stateName];

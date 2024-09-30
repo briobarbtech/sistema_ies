@@ -16,8 +16,7 @@ class ConfirmPasswordField extends ConsumerWidget {
   final BuildContext context;
   const ConfirmPasswordField(
       this.controller, this.text, this.context, this.oldPassword,
-      {Key? key})
-      : super(key: key);
+      {super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Column(

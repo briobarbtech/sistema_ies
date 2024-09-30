@@ -7,7 +7,7 @@ import '../domain/repo.dart';
 void main() => runApp(const RegistrationManagement());
 
 class RegistrationManagement extends StatelessWidget {
-  const RegistrationManagement({Key? key}) : super(key: key);
+  const RegistrationManagement({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +22,7 @@ class RegistrationManagement extends StatelessWidget {
 class MainScreen extends StatelessWidget {
   final AlumnoRepository alumnoRepository;
 
-  const MainScreen({Key? key, required this.alumnoRepository})
-      : super(key: key);
+  const MainScreen({super.key, required this.alumnoRepository});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,8 +33,7 @@ class MainScreen extends StatelessWidget {
 
 class AlumnoSearch extends StatefulWidget {
   final AlumnoRepository alumnoRepository;
-  const AlumnoSearch({Key? key, required this.alumnoRepository})
-      : super(key: key);
+  const AlumnoSearch({super.key, required this.alumnoRepository});
 
   @override
   AlumnoSearchState createState() => AlumnoSearchState();

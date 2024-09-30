@@ -6,8 +6,8 @@ class PassCheck extends StatelessWidget {
   const PassCheck(
     this.toVerifyElement,
     this.tag, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

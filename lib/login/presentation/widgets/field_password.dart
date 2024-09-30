@@ -12,8 +12,7 @@ class FieldLoginPass extends ConsumerWidget {
   final TextEditingController controller;
   final Enum text;
   final BuildContext context;
-  const FieldLoginPass(this.controller, this.text, this.context, {Key? key})
-      : super(key: key);
+  const FieldLoginPass(this.controller, this.text, this.context, {super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
