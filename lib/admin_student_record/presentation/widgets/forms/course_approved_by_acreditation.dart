@@ -59,9 +59,9 @@ class CourseApprovedByAcreditation extends StatelessWidget {
                       numericalGrade: int.parse(numericalGrade.text));
                   // and send the form
                   // TODO:
-                  print(IESSystem()
+                  IESSystem()
                       .adminStudentRecordsUseCase
-                      .submitNewStudentMovement(newMovement));
+                      .submitNewStudentMovement(newMovement);
                 }
               },
               child: const Text("Load"))

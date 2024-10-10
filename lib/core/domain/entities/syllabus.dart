@@ -1,9 +1,13 @@
 class Syllabus {
   final String name;
   final String administrativeResolution;
+  final bool isATeachersSyllabus;
   List<Subject> subjects = [];
 
-  Syllabus({required this.name, required this.administrativeResolution});
+  Syllabus(
+      {required this.name,
+      required this.administrativeResolution,
+      required this.isATeachersSyllabus});
 
   addSubject(Subject newSubject) {
     subjects.add(newSubject);

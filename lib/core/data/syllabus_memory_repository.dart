@@ -12,7 +12,8 @@ class SyllabusesRepositoryMemoryAdapter implements SyllabusesRepositoryPort {
     Syllabus buildSyllabusFromJson(Map<String, dynamic> json) {
       Syllabus newSyllabus = Syllabus(
           name: json['name'],
-          administrativeResolution: json['administrativeResolution']);
+          administrativeResolution: json['administrativeResolution'],
+          isATeachersSyllabus: json['isATeachersSyllabus']);
       for (Map<String, dynamic> subjectJson in json['subjects']) {
         Subject newSubject = Subject(
             id: subjectJson['id'],
@@ -38,6 +39,7 @@ class SyllabusesRepositoryMemoryAdapter implements SyllabusesRepositoryPort {
       Map<String, dynamic> newJson = {
         'name': 'Tecnicatura Superior en Computación y Redes',
         'administrativeResolution': '490-DGE-19',
+        'isATeachersSyllabus': false,
         'subjects': [
           {
             'id': '490-DGE-19-01',
@@ -358,6 +360,7 @@ class SyllabusesRepositoryMemoryAdapter implements SyllabusesRepositoryPort {
       Map<String, dynamic> newJson = {
         'name': 'Tecnicatura Superior en Desarrollo de Software',
         'administrativeResolution': '501-DGE-19',
+        'isATeachersSyllabus': false,
         'subjects': [
           {
             'id': '501-DGE-19-01',

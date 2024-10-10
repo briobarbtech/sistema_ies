@@ -127,7 +127,10 @@ class UsersRepositoryFirestoreAdapter implements UsersRepositoryPort {
                 .fold((left) {
               return left;
             }, (right) {
-              roles.add(Student(syllabus: right));
+              roles.add(Student(
+                  syllabus: right,
+                  registrationDocumentsIsCompleted:
+                      docRole.value['registrationDocumentsIsCompleted']));
             });
 
             break;

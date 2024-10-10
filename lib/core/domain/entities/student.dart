@@ -2,12 +2,25 @@ import 'package:sistema_ies/core/domain/entities/syllabus.dart';
 import 'package:sistema_ies/core/domain/entities/user_roles.dart';
 import 'package:sistema_ies/core/domain/utils/datetime.dart';
 
+enum RegistrationDocument {
+  identityCard, //DNI
+  birthCertificate, //Fotocopia de la partida de nacimiento
+  highSchoolDiploma, //Fotocopia del título secundario
+  photos, //fotos
+  psychophysicalFitness, //Certificado de aptitud psicosísica
+  vaccination, //Certificad
+  hangingFolder, //carpeta colgante
+  entExamination, // Examen ORL
+  disability // CUD,  Certificado único de discapacidad
+}
+
 class Student extends UserRole {
   Syllabus syllabus;
   List<StudentRecordSubject> srSubjects = [];
-  // List<MovementStudentRecord> studentEvents = [];
-
-  Student({required this.syllabus});
+  Map<RegistrationDocument, bool>? registrationDocuments;
+  bool registrationDocumentsIsCompleted;
+  Student(
+      {required this.syllabus, required this.registrationDocumentsIsCompleted});
 
   @override
   UserRoleTypeName userRoleTypeName() {

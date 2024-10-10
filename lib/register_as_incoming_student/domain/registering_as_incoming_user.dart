@@ -90,7 +90,9 @@ class RegisteringAsIncomingStudentUseCase
           IESSystem().homeUseCase.onReturnFromRegisteringAsIncommingStudent(
               currentState.selectedSyllabusIfAny == null
                   ? null
-                  : Student(syllabus: currentState.selectedSyllabusIfAny!));
+                  : Student(
+                      syllabus: currentState.selectedSyllabusIfAny!,
+                      registrationDocumentsIsCompleted: false));
         });
       }
     }
