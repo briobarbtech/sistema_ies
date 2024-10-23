@@ -5,14 +5,14 @@ import 'package:sistema_ies/core/domain/entities/student.dart';
 import 'package:sistema_ies/core/domain/entities/syllabus.dart';
 import 'package:sistema_ies/core/domain/entities/user_roles.dart';
 
-enum Documents {
-  idPhotocopy,
-  photcopyBirthCertificate,
-  passportPhoto,
-  analytical,
-  psychophysical,
-  vaccinationCertificate
-}
+// enum Documents {
+//   idPhotocopy,
+//   photcopyBirthCertificate,
+//   passportPhoto,
+//   analytical,
+//   psychophysical,
+//   vaccinationCertificate
+// }
 
 class IESUser {
   final dynamic id;
@@ -21,14 +21,14 @@ class IESUser {
   final DateTime birthdate;
   final int dni;
   final String email;
-  final Map<Documents, bool> documents = {
-    Documents.idPhotocopy: false,
-    Documents.photcopyBirthCertificate: false,
-    Documents.passportPhoto: false,
-    Documents.analytical: false,
-    Documents.psychophysical: false,
-    Documents.vaccinationCertificate: false
-  };
+  // final Map<Documents, bool> documents = {
+  //   Documents.idPhotocopy: false,
+  //   Documents.photcopyBirthCertificate: false,
+  //   Documents.passportPhoto: false,
+  //   Documents.analytical: false,
+  //   Documents.psychophysical: false,
+  //   Documents.vaccinationCertificate: false
+  // };
   List<UserRole> roles = [];
   // UserRole? defaultRole;
   int currentRoleIndex = 0;
@@ -52,11 +52,11 @@ class IESUser {
     roles.add(newRole);
   }
 
-  registerDocumentation(document) {
-    if (documents.containsKey(document)) {
-      documents[document] = true;
-    }
-  }
+  // registerDocumentation(document) {
+  //   if (documents.containsKey(document)) {
+  //     documents[document] = true;
+  //   }
+  // }
 
   // Student? studentRoleIfAny() {
   //   UserRole? studentRoleIfAny = roles.firstWhereOrNull(

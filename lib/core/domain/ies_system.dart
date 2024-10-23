@@ -166,9 +166,10 @@ class IESSystem extends Operation {
       /* ---------- */
       case UserRoleOperationName.enrollInCourses:
         enrollInCoursesUseCase = EnrollInCoursesUseCase(
-            const EnrollInCoursesState(
-                stateName: EnrollInCoursesStateName.init));
-        // studentRecordUseCase.getStudentRecords();
+            const EnrollInCoursesInitState(subjectEnrolments: []),
+            iesUser: homeUseCase.currentIESUser,
+            student: homeUseCase.currentIESUser.getCurrentRole() as Student);
+        enrollInCoursesUseCase.calculateEnrolments();
         changeState(const OperationState(
             stateName: IESSystemStateName.enrollInCourses));
         break;

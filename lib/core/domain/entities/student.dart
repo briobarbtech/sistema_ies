@@ -47,7 +47,7 @@ class Student extends UserRole {
   }
 }
 
-enum SubjetState { approved, regular, dessaproved, coursing, nule }
+enum SubjectState { approved, regular, dissaproved, coursing, nule }
 
 // Student Record subject
 class StudentRecordSubject {
@@ -61,7 +61,19 @@ class StudentRecordSubject {
   int? courseAcreditationNumericalGrade;
   bool endCourseApproval = false;
   bool coursing = false;
-  Enum subjectState = SubjetState.nule;
+  // Enum subjectState = SubjetState.nule;
+  SubjectState get subjectState {
+    if (finalExamApprovalDateIfAny != null) {
+      return SubjectState.approved;
+    } else if (courseApprovalDateIfAny != null) {
+      return SubjectState.regular;
+    } else if (coursing) {
+      return SubjectState.coursing;
+    } else {
+      return SubjectState.nule;
+    }
+  }
+
   StudentRecordSubject(
       {required this.subjectId,
       required this.name,
@@ -132,19 +144,19 @@ class StudentRecordSubject {
 
     finalExamApprovalDateIfAny = date;
     finalExamApprovalGradeIfAny = numericalGrade;
-    changeSubjetState(SubjetState.approved);
+    // changeSubjetState(SubjectState.approved);
   }
 
   addMovCourseRegistering({required DateTime date}) {
     addMovementToStudentRecord(MSRCourseRegistering(date: date));
 
     coursing = true;
-    changeSubjetState(SubjetState.coursing);
+    // changeSubjetState(SubjectState.coursing);
   }
 
   addMovCourseFailedNonFree({required DateTime date}) {
     addMovementToStudentRecord(MSRCourseFailedNonFree(date: date));
-    changeSubjetState(SubjetState.regular);
+    // changeSubjetState(SubjectState.regular);
   }
 
   addMovCourseFailedFree({required DateTime date}) {
@@ -152,7 +164,7 @@ class StudentRecordSubject {
 
     courseApprovalDateIfAny = date;
     endCourseApproval = false;
-    changeSubjetState(SubjetState.dessaproved);
+    // changeSubjetState(SubjectState.dissaproved);
   }
 
   addMovCourseApproved({required DateTime date}) {
@@ -160,7 +172,7 @@ class StudentRecordSubject {
 
     courseApprovalDateIfAny = date;
     endCourseApproval = true;
-    changeSubjetState(SubjetState.approved);
+    // changeSubjetState(SubjectState.approved);
   }
 
   addMovCourseApprovedWithAccreditation(
@@ -168,7 +180,7 @@ class StudentRecordSubject {
     courseApprovalDateIfAny = date;
     endCourseApproval = true;
     courseAcreditationNumericalGrade = numericalGrade;
-    changeSubjetState(SubjetState.approved);
+    // changeSubjetState(SubjectState.approved);
     addMovementToStudentRecord(MSRCourseApprovedWithAccreditation(
         date: date, numericalGrade: numericalGrade));
   }
@@ -183,7 +195,7 @@ class StudentRecordSubject {
         numericalGrade: numericalGrade,
         bookNumber: bookNumber,
         pageNumber: pageNumber));
-    changeSubjetState(SubjetState.approved);
+    // changeSubjetState(SubjectState.approved);
     finalExamApprovalDateIfAny = date;
     finalExamApprovalGradeIfAny = numericalGrade;
   }
@@ -192,12 +204,12 @@ class StudentRecordSubject {
       {required DateTime date, required int numericalGrade}) {
     addMovementToStudentRecord(
         MSRFinalExamNonApproved(date: date, numericalGrade: numericalGrade));
-    changeSubjetState(SubjetState.regular);
+    // changeSubjetState(SubjectState.regular);
   }
 
-  changeSubjetState(SubjetState newState) {
-    subjectState = newState;
-  }
+  // changeSubjetState(SubjectState newState) {
+  //   subjectState = newState;
+  // }
 
   @override
   String toString() {
@@ -501,7 +513,7 @@ class StudentRecordSubject2 {
   int? courseAcreditationNumericalGrade;
 
   bool coursing = false;
-  Enum subjectState = SubjetState.nule;
+  Enum subjectState = SubjectState.nule;
 
   StudentRecordSubject2(
       {required this.subjectId,
